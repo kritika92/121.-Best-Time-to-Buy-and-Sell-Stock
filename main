@@ -1,0 +1,17 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices)==0:
+            return 0
+        else:
+            present_min=prices[0]
+            current_max_diff=0
+            for i in range(1,len(prices)):
+                if prices[i]<present_min:
+                    present_min=prices[i]
+                if prices[i]-present_min>current_max_diff:
+                    current_max_diff=prices[i]-present_min
+            return current_max_diff
